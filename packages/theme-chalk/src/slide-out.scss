@@ -1,0 +1,93 @@
+@import "mixins/mixins";
+@import "common/var";
+
+@include b(slide-out) {
+  @include e(mask) {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  @include e(main) {
+    position: fixed;
+    background-color: #fff;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0px;
+    box-shadow: 0 0 20px -10px #000;
+    display: flex;
+    flex-direction: column;
+  }
+  @include e(header) {
+    border-bottom: 1px #ddd solid;
+    font-size: 14px;
+    color: #888;
+    padding: 20px;
+    padding-bottom: 10px;
+  }
+  @include e(body) {
+    flex: 1;
+    overflow-y: scroll;
+    padding: 10px 15px;
+    @include scroll-bar;
+  }
+  @include e(title) {
+    line-height: $--dialog-line-height;
+    font-size: $--dialog-title-font-size;
+    color: $--color-text-primary;
+  }
+  @include e(headerbtn) {
+    position: absolute;
+    top: $--dialog-padding-primary;
+    right: $--dialog-padding-primary;
+    padding: 0;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: $--message-close-size;
+
+    .el-dialog__close {
+      color: $--color-info;
+    }
+
+    &:focus,
+    &:hover {
+      .el-dialog__close {
+        color: $--color-primary;
+      }
+    }
+  }
+  @include e(flex) {
+    display: flex;
+    align-items: center;
+  }
+  @include e(flex-1) {
+    flex: 1;
+    .close {
+      font-size: 28px;
+      font-weight: normal;
+    }
+  }
+}
+
+.fade-enter {
+  opacity: 0;
+}
+.fade-enter-active {
+  transition: 0.4s;
+}
+.fade-leave-active {
+  opacity: 0;
+  transition: 0.4s;
+}
+.slide-enter-active,
+.slide-leave-active {
+  transition: 0.4s;
+}
+.slide-enter,
+.slide-leave-active {
+  transform: translateX(100%);
+}
