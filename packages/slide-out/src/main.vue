@@ -1,8 +1,11 @@
 <template>
   <div class="el-slide-out">
-    <div class="el-slide-out__mask"
-       @click="handleWrapperClick"
-       v-show="visible"></div>
+    <transition
+    name="slideout-fade">
+      <div class="el-slide-out__mask"
+        @click="handleWrapperClick"
+        v-show="visible"></div>
+    </transition>
     <transition name="slide"
                 @after-enter="afterEnter"
                 @after-leave="afterLeave">
@@ -11,24 +14,23 @@
             v-show="visible"
            :style="{'width': width}">
         <div class="el-slide-out__header clearfix">
-          <slot name="head">
-            <div>
-              <slot name="title">
+          <slot name="title">
                 <span class="el-slide-out__title">{{ title }}</span>
-              </slot>
-              <button
-                type="button"
-                class="el-slide-out__headerbtn"
-                aria-label="Close"
-                v-if="showClose"
-                @click="handleClose">
-                <i class="el-dialog__close el-icon el-icon-close"></i>
-              </button>
-            </div>
           </slot>
+          <button
+            type="button"
+            class="el-slide-out__headerbtn"
+            aria-label="Close"
+            v-if="showClose"
+            @click="handleClose">
+            <i class="el-dialog__close el-icon el-icon-close"></i>
+          </button>
         </div>
         <div class="el-slide-out__body">
           <slot name="body"></slot>
+        </div>
+        <div class="el-slide-out__footer" v-if="$slots.footer">
+          <slot name="footer"></slot>
         </div>
       </div>
     </transition>
@@ -36,9 +38,9 @@
 </template>
 
 <script>
-import Popup from 'element-ui-ct-ex/src/utils/popup';
-import Migrating from 'element-ui-ct-ex/src/mixins/migrating';
-import emitter from 'element-ui-ct-ex/src/mixins/emitter';
+import Popup from 'element-ui-ct/lib/utils/popup';
+import Migrating from 'element-ui-ct/lib/mixins/migrating';
+import emitter from 'element-ui-ct/lib/mixins/emitter';
 
 export default {
   name: 'ElSlideOut',
@@ -62,7 +64,6 @@ export default {
       type: Boolean,
       default: true
     },
-    // bug:只要在modal为true时该值的true才生效
     closeOnPressEscape: {
       type: Boolean,
       default: true
@@ -76,7 +77,11 @@ export default {
       type: String,
       default: ''
     },
-    beforeClose: Function
+    beforeClose: Function,
+    lockScroll: {
+      type: Boolean,
+      default: false
+    }
   },
 
   data() {

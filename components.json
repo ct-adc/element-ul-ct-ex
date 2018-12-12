@@ -1,4 +1,4 @@
 {
-  "alert": "./packages/alert/index.js",
-  "slide-out": "./packages/slide-out/index.js"
+  "slide-out": "./packages/slide-out/index.js",
+  "permission": "./packages/permission/index.js"
 }

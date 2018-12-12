@@ -28,12 +28,14 @@ const install = function(Vue, opts = {}) {
   });
 
   // Vue.use(Loading.directive);
+  Vue.use(Permission.directive);
 
   Vue.prototype.$ELEMENT = {
     size: opts.size || '',
     zIndex: opts.zIndex || 2000
   };
 
+  Vue.$permission = Permission.permission;
   // Vue.prototype.$loading = Loading.service;
   // Vue.prototype.$msgbox = MessageBox;
   // Vue.prototype.$alert = MessageBox.alert;
@@ -56,6 +58,7 @@ module.exports = {
   install,
   CollapseTransition,
   // Loading,
+  Permission,
 {{list}}
 };
 
@@ -78,14 +81,14 @@ ComponentNames.forEach(name => {
     package: name
   }));
 
-  if (['Loading', 'MessageBox', 'Notification', 'Message'].indexOf(componentName) === -1) {
+  if (['Loading', 'MessageBox', 'Notification', 'Message', 'Permission'].indexOf(componentName) === -1) {
     installTemplate.push(render(INSTALL_COMPONENT_TEMPLATE, {
       name: componentName,
       component: name
     }));
   }
 
-  if (componentName !== 'Loading') listTemplate.push(`  ${componentName}`);
+  if (componentName !== 'Loading' && componentName !== 'Permission') listTemplate.push(`  ${componentName}`);
 });
 
 var template = render(MAIN_TEMPLATE, {

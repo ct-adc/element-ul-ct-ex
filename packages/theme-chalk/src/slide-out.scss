@@ -8,23 +8,26 @@
     right: 0;
     bottom: 0;
     left: 0;
+    margin: 0;
   }
   @include e(main) {
     position: fixed;
-    background-color: #fff;
+    background-color: $--color-white;
     top: 0;
     right: 0;
     bottom: 0;
-    padding: 0px;
-    box-shadow: 0 0 20px -10px #000;
+    padding: 0;
+    box-shadow: $--slideout-box-shadow;
     display: flex;
     flex-direction: column;
   }
   @include e(header) {
-    border-bottom: 1px #ddd solid;
-    font-size: 14px;
-    color: #888;
-    padding: 20px;
+    border-bottom-width: $--border-width-base;
+    border-bottom-style: $--border-style-base;
+    border-bottom-color: $--border-color-base;
+    font-size: $--slideout-title-font-size;
+    color: $--color-text-primary;
+    padding: $--slideout-padding-primary;
     padding-bottom: 10px;
   }
   @include e(body) {
@@ -34,14 +37,14 @@
     @include scroll-bar;
   }
   @include e(title) {
-    line-height: $--dialog-line-height;
-    font-size: $--dialog-title-font-size;
+    line-height: $--slideout-line-height;
+    font-size: $--slideout-title-font-size;
     color: $--color-text-primary;
   }
   @include e(headerbtn) {
     position: absolute;
-    top: $--dialog-padding-primary;
-    right: $--dialog-padding-primary;
+    top: $--slideout-padding-primary;
+    right: $--slideout-padding-primary;
     padding: 0;
     background: transparent;
     border: none;
@@ -49,39 +52,57 @@
     cursor: pointer;
     font-size: $--message-close-size;
 
-    .el-dialog__close {
+    .el-slideout__close {
       color: $--color-info;
     }
 
     &:focus,
     &:hover {
-      .el-dialog__close {
+      .el-slideout__close {
         color: $--color-primary;
       }
     }
   }
-  @include e(flex) {
-    display: flex;
-    align-items: center;
-  }
-  @include e(flex-1) {
-    flex: 1;
-    .close {
-      font-size: 28px;
-      font-weight: normal;
-    }
+  @include e(footer) {
+    padding: $--slideout-padding-primary;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    box-sizing: border-box;
+    border-top-width: $--border-width-base;
+    border-top-style: $--border-style-base;
+    border-top-color: $--border-color-base;
+    text-align: right;
   }
 }
 
-.fade-enter {
-  opacity: 0;
+.slideout-fade-enter-active {
+  animation: slideout-fade-in 0.3s;
 }
-.fade-enter-active {
-  transition: 0.4s;
+
+.slideout-fade-leave-active {
+  animation: slideout-fade-out 0.3s;
 }
-.fade-leave-active {
-  opacity: 0;
-  transition: 0.4s;
+
+@keyframes slideout-fade-in {
+  0% {
+    transform: translate3d(0, -20px, 0);
+    opacity: 0;
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideout-fade-out {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(0, -20px, 0);
+    opacity: 0;
+  }
 }
 .slide-enter-active,
 .slide-leave-active {

@@ -109,6 +109,31 @@ $--disabled-border-base: $--border-color-light !default;
 $--icon-color: #666 !default;
 $--icon-color-base: $--color-info !default;
 
+/* Slideout
+--------------------------- */
+
+$--slideout-background-color: $--color-primary-light-4 !default;
+$--slideout-box-shadow: -1px 0 3px rgba(0, 0, 0, 0.3) !default;
+$--slideout-close-hover-color: $--color-primary !default;
+$--slideout-title-font-size: $--font-size-large !default;
+$--slideout-font-size: 14px !default;
+$--slideout-line-height: $--font-line-height-primary !default;
+$--slideout-padding-primary: 20px !default;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Checkbox
 -------------------------- */
 $--checkbox-font-size: 14px !default;

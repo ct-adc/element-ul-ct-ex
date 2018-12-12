@@ -1,14 +1,14 @@
 import { createTest, destroyVM } from '../util';
-import Slider from 'packages/slider';
+import Permission from 'packages/permission';
 
-describe('Slider', () => {
+describe('Permission', () => {
   let vm;
   afterEach(() => {
     destroyVM(vm);
   });
 
   it('create', () => {
-    vm = createTest(Slider, true);
+    vm = createTest(Permission, true);
     expect(vm.$el).to.exist;
   });
 });

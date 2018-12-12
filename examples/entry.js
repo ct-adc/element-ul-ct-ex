@@ -38,8 +38,34 @@ router.afterEach(route => {
   }
   document.title = 'Element';
 });
-
+Vue.use(ElementEx.Permission, {
+  reqErrorFree: false,
+  router: router,
+  config: {
+    'page1': {
+      pageId: 300105,
+      code: {
+        page: 30010,
+        add: 102343,
+        edit: 102344,
+        editView: 102345
+      }
+    }
+  },
+  axios: {
+    url: '/permission/get1',
+    method: 'get',
+    params(pageId) {
+      return {
+        page: pageId
+      };
+    }
+  }
+});
+// Vue.$permission('page1').then(()=>{
 new Vue({ // eslint-disable-line
   render: h => h(entry),
   router
 }).$mount('#app');
+// });
+

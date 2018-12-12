@@ -102,7 +102,9 @@ const generateMiscRoutes = function(lang) {
 
   let indexRoute = {
     path: `/${ lang }`, // 首页
-    meta: { lang },
+    meta: { lang},
+    // , meta里加入改句则进行权限控制
+    //   authCode: 'page'
     name: 'home' + lang,
     component: load(lang, 'index')
   };
@@ -129,5 +131,4 @@ route = route.concat([{
   path: '*',
   redirect: defaultPath
 }]);
-
 export default route;
