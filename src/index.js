@@ -2,11 +2,13 @@
 
 import SlideOut from '../packages/slide-out/index.js';
 import Permission from '../packages/permission/index.js';
+import NoPermission from '../packages/no-permission/index.js';
 import locale from 'element-ui-ct-ex/src/locale';
 import CollapseTransition from 'element-ui-ct-ex/src/transitions/collapse-transition';
 
 const components = [
   SlideOut,
+  NoPermission,
   CollapseTransition
 ];
 
@@ -50,7 +52,8 @@ module.exports = {
   CollapseTransition,
   // Loading,
   Permission,
-  SlideOut
+  SlideOut,
+  NoPermission
 };
 
 module.exports.default = module.exports;

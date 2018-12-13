@@ -1,4 +1,5 @@
 {
   "slide-out": "./packages/slide-out/index.js",
-  "permission": "./packages/permission/index.js"
+  "permission": "./packages/permission/index.js",
+  "no-permission": "./packages/no-permission/index.js"
 }

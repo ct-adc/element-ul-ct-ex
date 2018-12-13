@@ -38,6 +38,10 @@
             {
               "path": "/permission",
               "title": "Permission"
+            },
+            {
+              "path": "/no-permission",
+              "title": "NoPermission"
             }
           ]
         }

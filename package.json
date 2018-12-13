@@ -1,5 +1,5 @@
 {
-  "name": "element-ui-ct",
+  "name": "element-ui-ct-ex",
   "version": "0.0.2",
   "description": "A Component Library for Vue.js.",
   "main": "lib/element-ui-ct-ex.common.js",

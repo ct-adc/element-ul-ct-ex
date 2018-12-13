@@ -48,6 +48,8 @@ Vue.$permission('page1').then(()=>{
 
 ### 路由权限控制
 
+对路由的权限控制，是指在enter某个需要控制权限的路由前，检测当前用户是否有访问该路由对应的页面的权限，如果没有，则统一跳转到无权限页面。
+
 :::demo 当对router进行权限控制时 
 ```html
 你可以点击<router-link to="/no-permission">查看无权限页面</router-link>
@@ -210,6 +212,6 @@ axios配置和axios官方配置除params为函数外，其他均一致。
 :::
 
 :::warning
-注意：请不要设置多余的请求数据处理配置，如当请求为'post'时，除非你真的需要设置params，否则请不要设置。
+<b>注意：</b>请不要设置多余的请求数据处理配置，如当请求为'post'时，除非你真的需要设置params，否则请不要设置。<br/>
 因为post请求中params是默认不忽略的，也就是说，axios没有禁止post请求不能带query。
 :::

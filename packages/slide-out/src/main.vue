@@ -27,7 +27,7 @@
           </button>
         </div>
         <div class="el-slide-out__body">
-          <slot name="body"></slot>
+          <slot></slot>
         </div>
         <div class="el-slide-out__footer" v-if="$slots.footer">
           <slot name="footer"></slot>

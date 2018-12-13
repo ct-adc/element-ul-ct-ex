@@ -2,7 +2,7 @@
 import utility from 'ct-utility';
 import Vue from 'vue';
 import axios from 'axios';
-import NoPermission from './no-permission';
+import NoPermission from '../../no-permission';
 
 const PERMISSION = {
   _option: {
